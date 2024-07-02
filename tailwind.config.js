@@ -11,7 +11,16 @@ export default {
   theme: {
     extend: {
       colors: { orangeHeaderTop: '#f6432e', orangeHeaderBottom: '#fe6332' },
-      colorHeader: 'linear-gradient(-180deg, #f53d2d, #f63)'
+      colorHeader: 'linear-gradient(-180deg, #f53d2d, #f63)',
+      scrollbarWidth: {
+        thin: '10px'
+      },
+      scrollbarColor: {
+        red100: '#fecaca'
+      },
+      scrollbarTrackColor: {
+        slate50: '#f8fafc'
+      }
     }
   },
   plugins: [
@@ -26,6 +35,7 @@ export default {
         }
       })
     }),
-    require('@tailwindcss/line-clamp')
+    require('@tailwindcss/line-clamp'),
+    require('tailwind-scrollbar')
   ]
 }

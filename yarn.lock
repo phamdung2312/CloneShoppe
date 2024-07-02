@@ -5425,6 +5425,7 @@ __metadata:
     rollup-plugin-visualizer: "npm:^5.12.0"
     storybook: "npm:^8.1.10"
     storybook-addon-remix-react-router: "npm:^3.0.0"
+    tailwind-scrollbar: "npm:^3.1.0"
     tailwindcss: "npm:^3.4.3"
     typescript: "npm:^5.2.2"
     vite: "npm:^5.2.0"
@@ -11173,6 +11174,15 @@ __metadata:
   version: 6.2.0
   resolution: "tabbable@npm:6.2.0"
   checksum: 10c0/ced8b38f05f2de62cd46836d77c2646c42b8c9713f5bd265daf0e78ff5ac73d3ba48a7ca45f348bafeef29b23da7187c72250742d37627883ef89cbd7fa76898
+  languageName: node
+  linkType: hard
+
+"tailwind-scrollbar@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "tailwind-scrollbar@npm:3.1.0"
+  peerDependencies:
+    tailwindcss: 3.x
+  checksum: 10c0/dad4d5dcc37f09806cb1b5380d7908d113d139638ac606644ba0c689dffb2d72250f6997c0091c2ba596346390b31742859a20933c2d8543f8103e2ddfc3fb82
   languageName: node
   linkType: hard
 

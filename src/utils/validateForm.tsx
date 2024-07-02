@@ -79,6 +79,11 @@ export const schemeUser = yup.object({
   new_password: scheme.fields['password'],
   confirm_password: conformPassword('new_password')
 })
+export const schemeForm = yup.object({
+  form_nam1: yup.string(),
+  form_nam2: yup.string()
+})
 
 export type schemeUserType = yup.InferType<typeof schemeUser>
 export type schemeType = yup.InferType<typeof scheme>
+export type schemeForm = yup.InferType<typeof schemeForm>

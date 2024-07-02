@@ -33,12 +33,12 @@ export default function SortFilter({ queryConfig, pageSize }: sortFilterProps) {
   }
 
   return (
-    <div className='bg-gray-300/40 py-4 px-3 rounded-sm'>
+    <div className='bg-gray-300/40 py-4 px-3 rounded-sm mt-[60px] overflow-hidden'>
       <div className='flex items-center justify-between'>
-        <div className='flex items-center flex-wrap gap-3'>
-          <span>Sắp xếp</span>
+        <div className='flex items-center gap-3 sm:w-full flex-wrap'>
+          <span className='sm:flex  inline-block'>Sắp xếp</span>
           <button
-            className={classNames('h-[34px] cursor-pointer w-[90px] rounded-sm capitalize   text-sm ', {
+            className={classNames('h-[34px] cursor-pointer w-[90px] rounded-sm capitalize text-sm inline-block ', {
               'bg-[#f6432e] text-white hover:bg-[#f6432e]/60': isActiveSortBy(sortBy.view),
               'bg-white text-black hover:bg-white/80': !isActiveSortBy(sortBy.view)
             })}
@@ -47,7 +47,7 @@ export default function SortFilter({ queryConfig, pageSize }: sortFilterProps) {
             Phổ biến
           </button>
           <button
-            className={classNames('h-[34px] cursor-pointer w-[90px] rounded-sm capitalize   text-sm ', {
+            className={classNames('h-[34px] cursor-pointer w-[90px] rounded-sm capitalize inline-block  text-sm ', {
               'bg-[#f6432e] text-white hover:bg-[#f6432e]/60': isActiveSortBy(sortBy.createdAt),
               'bg-white text-black hover:bg-white/80': !isActiveSortBy(sortBy.createdAt)
             })}
@@ -56,7 +56,7 @@ export default function SortFilter({ queryConfig, pageSize }: sortFilterProps) {
             Mới nhất
           </button>
           <button
-            className={classNames('h-[34px] cursor-pointer w-[90px] rounded-sm capitalize   text-sm ', {
+            className={classNames('h-[34px] cursor-pointer w-[90px] rounded-sm capitalize  inline-block text-sm ', {
               'bg-[#f6432e] text-white hover:bg-[#f6432e]/60': isActiveSortBy(sortBy.sold),
               'bg-white text-black hover:bg-white/80': !isActiveSortBy(sortBy.sold)
             })}
@@ -65,10 +65,13 @@ export default function SortFilter({ queryConfig, pageSize }: sortFilterProps) {
             Bán chạy
           </button>
           <select
-            className={classNames('h-[34px] cursor-pointer rounded-sm capitalize  px-2  text-sm  outline-none', {
-              'bg-[#f6432e] text-white hover:bg-[#f6432e]/60': isActiveSortBy(sortBy.price),
-              'bg-white text-black hover:bg-white/80': !isActiveSortBy(sortBy.price)
-            })}
+            className={classNames(
+              'h-[34px] cursor-pointer rounded-sm capitalize inline-block  px-2  text-sm  outline-none',
+              {
+                'bg-[#f6432e] text-white hover:bg-[#f6432e]/60': isActiveSortBy(sortBy.price),
+                'bg-white text-black hover:bg-white/80': !isActiveSortBy(sortBy.price)
+              }
+            )}
             value={order || ''}
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
               handeleOderPrice(e.target.value as Exclude<productListConfig['order'], undefined>)
@@ -85,7 +88,7 @@ export default function SortFilter({ queryConfig, pageSize }: sortFilterProps) {
             </option>
           </select>
         </div>
-        <div className=' flex items-center gap-5'>
+        <div className='sm:flex items-center gap-5 hidden'>
           <div>
             <span className='text-[#f6432e]'>{page}</span>
             <span>/{pageSize}</span>
