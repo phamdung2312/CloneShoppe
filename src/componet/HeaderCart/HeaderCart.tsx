@@ -29,7 +29,7 @@ export default function HeaderCart() {
                   placeholder='Enter search product'
                   type='text'
                   className='text-black px-3 py-2 flex-grow border-none outline-none bg-transparent'
-                  {...register('name')}
+                  {...register('form_nam1')}
                 />
                 <button type='submit' className='rounded-sm py-2 px-6 flex-shrink-0 bg-[#f6432e] hover:opacity-90'>
                   <svg
