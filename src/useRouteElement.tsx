@@ -12,6 +12,7 @@ import { path } from './constant/app.path'
 // import Cart from './componet/Cart'
 import CartLayout from './Layout/CartLayout'
 import UserLayout from './User/componet/UserLayout'
+import NavUser from './ResponeComponent'
 // import Profile from './User/pages/Profile'
 // import ChangePassword from './User/pages/ChangePassword'
 // import HistoryPurchase from './User/pages/HistoryPurchase'
@@ -45,6 +46,7 @@ export default function useRouteElement() {
             <Suspense fallback={<div>Loading...</div>}>
               <ProductList />
             </Suspense>
+            <NavUser></NavUser>
           </MainLayout>
         ),
         index: true

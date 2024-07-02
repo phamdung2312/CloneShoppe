@@ -189,7 +189,7 @@ export default function Cart() {
                       key={index}
                       className='grid first:mt-0 mt-3 grid-cols-12 rounded-sm border-2 border-gray-300 bg-white py-5 px-4 text-center text-small text-gray-500'
                     >
-                      <div className='col-span-6'>
+                      <div className='col-span-6 overflow-auto'>
                         <div className='flex'>
                           <div className='flex flex-shrink-0 items-center justify-center pr-3'>
                             <input

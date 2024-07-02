@@ -67,72 +67,7 @@ export default function Header() {
 
   return (
     <Fragment>
-      <div className='sm:pb-2 shadow-2xl border bg-white text-white sm:hidden fixed z-10 w-full h-[60px] bottom-[-1px] left-0 '>
-        {name && (
-          <Helmet>
-            <title>{name} giá tốt, uy tín, chất lượng | Shoppe clone</title>
-            <meta
-              name='description'
-              content='Giỏ hàng chứa một số mặt hàng được bán với chất lượng sản phẩm cao, uy tín và chất lượng'
-            />
-          </Helmet>
-        )}
-
-        <div className='container flex h-[60px] justify-between'>
-          <Link to='/' className='flex flex-col justify-center items-center capitalize'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 24 24'
-              strokeWidth={1.5}
-              stroke='#666769'
-              className='size-8'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                d='m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25'
-              />
-            </svg>
-
-            <span className='text-gray-500 mt-[1px]'>Home</span>
-          </Link>
-          <Link to='/' className='flex flex-col justify-center items-center capitalize'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 24 24'
-              strokeWidth={1.5}
-              stroke='#666769'
-              className='size-8'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                d='M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z'
-              />
-            </svg>
-            <span className='text-gray-500 mt-[1px]'>tôi</span>
-          </Link>
-          <Link to={path.profile} className='flex flex-col justify-center items-center capitalize'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 24 24'
-              strokeWidth={1.5}
-              stroke='#666769'
-              className='size-8'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                d='M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z'
-              />
-            </svg>
-            <span className='text-gray-500 mt-[1px]'>tôi</span>
-          </Link>
-        </div>
-      </div>
+      {/* giao diện header nhỏ hơn 640px */}
       <div className='sm:pb-2 bg-white text-white block sm:hidden fixed z-10 w-full h-[60px]'>
         {name && (
           <Helmet>
@@ -172,7 +107,7 @@ export default function Header() {
                 </button>
               </div>
             </form>
-            <div className='col-span-2 relative grow-1 w-200'>
+            <div className='col-span-2 relative grow-1 w-[50px]'>
               <Link to={`${path.cart}`} className='flex justify-center'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -190,7 +125,7 @@ export default function Header() {
                   />
                 </svg>
                 {purchaseIncartData && purchaseIncartData.data.data.length > 0 && (
-                  <span className=' flex items-center justify-center absolute top-[-3px] right-[12px] text-white bg-orangeHeaderTop text-xs rounded-[50%] w-[17px] h-[17px]  border-2 border-[#ee4d2d]'>
+                  <span className='flex items-center justify-center absolute top-[-2px] right-[5px] text-white bg-orangeHeaderTop text-xs rounded-[50%] w-[17px] h-[17px]  border-2 border-[#ee4d2d]'>
                     {purchaseIncartData?.data.data.length}
                   </span>
                 )}
@@ -199,6 +134,7 @@ export default function Header() {
           </div>
         </div>
       </div>
+      {/* giao diện header lớn hơn 640px */}
       <div className='pb-5 bg-gradient-to-b from-orangeHeaderTop to-orangeHeaderBottom text-white hidden sm:block'>
         {name && (
           <Helmet>
@@ -337,7 +273,7 @@ export default function Header() {
                 </button>
               </div>
             </form>
-            <div className='col-span-1 relative'>
+            <div className='col-span-1 relative flex justify-center w-20'>
               <Popover
                 topPopover='100px'
                 placementPopover='bottom-end'
@@ -404,7 +340,7 @@ export default function Header() {
                     viewBox='0 0 24 24'
                     strokeWidth={1.5}
                     stroke='currentColor'
-                    className='size-8 relative'
+                    className='size-8'
                     // style={{ position: 'absolute', top: '-20px', transform: 'translate(-50%, -10px)' }}
                   >
                     <path
