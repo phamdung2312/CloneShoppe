@@ -20,6 +20,22 @@ export default {
       },
       scrollbarTrackColor: {
         slate50: '#f8fafc'
+      },
+      keyframes: {
+        slideUpFadeIn: {
+          '0%': {
+            top: 60,
+            transform: 'translateY(50)'
+          },
+          '100%': {
+            opacity: 1,
+            transform: 'translateY(0)',
+            top: 0
+          }
+        }
+      },
+      animation: {
+        slideUpFadeIn: 'slideUpFadeIn 0.5s ease forwards'
       }
     }
   },

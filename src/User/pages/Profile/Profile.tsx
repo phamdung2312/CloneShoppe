@@ -30,7 +30,6 @@ function Info() {
   } = useFormContext<FormState>()
   return (
     <Fragment>
-      {' '}
       <div className='flex flex-wrap mt-4 items-center'>
         <div className='w-full sm:w-[20%] truncate sm:text-right capitalize mb-4'>Tên</div>
         <div className='w-[80%] sm:pl-5'>
@@ -130,18 +129,6 @@ export default function Profile() {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       {
-        // if (isAxiosUnprocessableEntity<ErrorResponseAPI<FormDataError>>(error)) {
-        //   const formData = error.response?.data.data
-        //   if (formData) {
-        //     console.log('error', error)
-        //     Object.keys(formData).forEach((key) => {
-        //       setError(key as keyof FormDataError , {
-        //         message: formData[key as keyof FormDataError],
-        //         type: 'server'
-        //       })
-        //     })
-        //   }
-        // }
         toast.error(error.response.data.data.phone)
       }
     }
@@ -165,36 +152,7 @@ export default function Profile() {
                 <div className='pt-3 text-gray-700'>{dataProfile?.email}</div>
               </div>
             </div>
-            {/* <div className='flex flex-wrap mt-4 items-center'>
-            <div className='w-full sm:w-[20%] truncate sm:text-right capitalize mb-4'>Tên</div>
-            <div className='w-[80%] sm:pl-5'>
-              <Input
-                register={register}
-                name='name'
-                rulesError={errors.name?.message}
-                className='w-full rounded-sm border-gray-300 sm:px-3 sm:py-2 outline-none focus:border-gray-500 focus:shadow-sm'
-              ></Input>
-            </div>
-          </div>
-          <div className='flex flex-wrap items-center mt-4'>
-            <div className='sm:w-[20%]  mb-4 w-full truncate sm:text-right capitalize'>Số điện thoại</div>
-            <div className='w-[80%] sm:pl-5'>
-              <Controller
-                name='phone'
-                control={control}
-                render={({ field }) => (
-                  <InputNumber
-                    {...field}
-                    placeholder='Số điện thoại'
-                    onChange={field.onChange}
-                    name='phone'
-                    rulesError={errors.phone?.message}
-                    className='w-full rounded-sm border-gray-300 sm:px-3 sm:py-2 outline-none focus:border-gray-500 focus:shadow-sm'
-                  ></InputNumber>
-                )}
-              ></Controller>
-            </div>
-          </div> */}
+
             <Info></Info>
             <div className='flex flex-wrap items-center mt-4'>
               <div className='sm:w-[20%]  mb-4 truncate w-full sm:text-right capitalize'>Địa chỉ</div>
@@ -241,7 +199,6 @@ export default function Profile() {
                 ></img>
               </div>
               <InputFile onChange={handleFileChange}></InputFile>
-
               <div className='mt-3 text-gray-400 flex flex-col'>
                 <span>Dụng lượng file tối đa 1 MB</span>
                 <span>Định dạng:.JPEG, .PNG</span>

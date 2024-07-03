@@ -8,7 +8,7 @@ export default function UserLayout() {
           <div className='md:col-span-3 lg:col-span-2'>
             <UserSideNav></UserSideNav>
           </div>
-          <div className='md:col-span-9 lg:col-span-10'>
+          <div className='md:col-span-9 lg:col-span-10 overflow-auto scrollbar-thumb-red-300 scrollbar-track-gray-100 scrollbar-thin'>
             <Outlet></Outlet>
           </div>
         </div>

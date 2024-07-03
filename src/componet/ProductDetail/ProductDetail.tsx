@@ -153,14 +153,14 @@ export default function ProductDetail() {
   return (
     <Fragment>
       {/* giao diện trang detail product lớn hơn 640px*/}
-      <div className='bg-gray-200 sm:py-6 pt-[60px]'>
+      <div className='bg-gray-200 sm:py-6 pt-[80px] pb-[20px]'>
         <Helmet>
           <title>{productItemData.data.data.name}</title>
           <meta name='description' content={truncate(convert(productItemData.data.data.description), 110)} />
         </Helmet>
-        <div className='container'>
+        <div className='sm:container'>
           <div className='bg-white p-4 shadow'>
-            <div className='grid grid-cols-12 gap-9'>
+            <div className='grid grid-cols-12 gap-9 overflow-auto scrollbar-thumb-red-300 scrollbar-track-gray-100 scrollbar-thin'>
               <div className='sm:col-span-5  col-span-12'>
                 <div
                   className='relative w-full pt-[100%] cursor-zoom-in shadow overflow-hidden'
@@ -246,20 +246,21 @@ export default function ProductDetail() {
                   </div>
                 </div>
                 <div className='mt-4 flex items-center bg-gray-50 px-5 py-4'>
-                  <div className='text-gray-500 line-through '>₫{formatCurrency(product.price_before_discount)}</div>
-                  <div className='text-orangeHeaderTop ml-3 text-3xl font-medium '>
+                  <div className='text-gray-500 line-through text-[14px] '>
+                    ₫{formatCurrency(product.price_before_discount)}
+                  </div>
+                  <div className='text-orangeHeaderTop ml-3 text-[16px] sm:text-2xl font-medium '>
                     ₫{formatCurrency(product.price)}
                   </div>
                   <div
-                    className='bg-orangeHeaderTop text-white uppercase px-1 py-[2px] font-semibold ml-6 rounded-sm
+                    className='bg-orangeHeaderTop/60 text-[12px] text-white uppercase px-1 py-[2px] font-semibold ml-6 rounded-sm
               '
                   >
-                    {discountPrice(product.price_before_discount, product.price)} giảm
+                    {discountPrice(product.price_before_discount, product.price)}
                   </div>
                 </div>
                 <div className=' mt-4 flex items-center '>
                   <div className='capitalize text-gray-500'>Số lượng</div>
-
                   <QualityControler
                     max={product.quantity}
                     onIncrease={handleBuyCount}
@@ -267,13 +268,17 @@ export default function ProductDetail() {
                     onType={handleBuyCount}
                     value={buyCount}
                   ></QualityControler>
-                  <div className='text-gray-500 ml-3'>
+                  <div className='text-gray-500 ml-3 sm:flex hidden'>
                     {product.quantity} {t('avaliable')}
                   </div>
                 </div>
+                {/* ui nhỏ hơn 640px */}
+                <div className='text-gray-500 mt-4 sm:hidden flex'>
+                  {product.quantity} {t('avaliable')}
+                </div>
                 <div className=' mt-4 flex items-center'>
                   <button
-                    className='flex shrink-0 h-12 items-center justify-center rounded-sm border px-5 border-orangeHeaderTop bg-orangeHeaderTop/10 capitalize text-orangeHeaderTop shadow-sm hover:bg-orangeHeaderTop/15 cursor-pointer'
+                    className='hidden sm:flex shrink-0 h-12 items-center justify-center rounded-sm border px-5 border-orangeHeaderTop bg-orangeHeaderTop/10 capitalize text-orangeHeaderTop shadow-sm hover:bg-orangeHeaderTop/15 cursor-pointer'
                     onClick={addToCart}
                   >
                     <svg
@@ -293,7 +298,7 @@ export default function ProductDetail() {
                     Thêm vào giỏ hàng
                   </button>
                   <button
-                    className='flex ml-4 h-12 min-w-[5rem] items-center justify-center rounded-sm bg-orangeHeaderTop px-10 capitalize text-white shadow-sm outline hover:bg-orangeHeaderTop/90'
+                    className='hidden sm:flex ml-4 h-12 min-w-[5rem] items-center justify-center rounded-sm bg-orangeHeaderTop px-10 capitalize text-white shadow-sm outline hover:bg-orangeHeaderTop/90'
                     onClick={handleBuyNow}
                   >
                     Mua ngay
@@ -304,12 +309,12 @@ export default function ProductDetail() {
           </div>
           <div className='bg-white p-4 shadow mt-8'>
             <div className='rounded bg-gray-50 p-4 capitalize text-slate-700'>Mô tả sản phẩm</div>
-            <div className='mx-4 mt-12 mb-4 text-sm leading-loose'>
+            <div className='mx-4 mt-12 mb-4 text-sm leading-loose text-justify'>
               <div className='' dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(product.description) }}></div>
             </div>
           </div>
           <div className='uppercase text-xl text-gray-500 mt-8'>
-            <span>Các sản phẩm khác liên quan</span>{' '}
+            <span>Các sản phẩm khác liên quan</span>
             <div className=' grid grid-cols-2 mt-6 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3'>
               {categoryData &&
                 categoryData.data.data.products.map((product, index) => (
@@ -322,8 +327,8 @@ export default function ProductDetail() {
         </div>
       </div>
       {/* giao diện trang detail product nhỏ hơn 640px*/}
-      <div className='sm:pb-2 shadow-2xl border bg-white text-white sm:hidden fixed z-10 w-full h-[50px] bottom-0 left-0 '>
-        <div className='grid-cols-12 grid w-full justify-center h-full '>
+      <div className='sm:pb-2 shadow-2xl border bg-white text-white sm:hidden fixed z-10 w-full h-[50px] bottom-[-1px] left-0 '>
+        <div className=' grid-cols-12 grid w-full justify-center h-full '>
           <div className='col-span-6 flex justify-evenly bg-[#00bfa5] items-center'>
             <Link to='/' className='flex flex-col justify-center items-center capitalize '>
               <svg
@@ -342,7 +347,7 @@ export default function ProductDetail() {
               </svg>
             </Link>
             <div className='w-[1px] h-8 bg-gray-500'></div>
-            <button className='flex flex-col justify-center items-center capitalize cursor-pointer' onClick={addToCart}>
+            <button className='flex flex-col justify-center items-center capitalize' onClick={addToCart}>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'

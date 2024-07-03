@@ -48,51 +48,46 @@ export default function HistoryPurchase() {
   ))
 
   return (
-    <div>
-      <div className='overflow-x-auto'>
-        <div className='min-w-[700px]'>
-          {' '}
-          <div className='sticky top-0 flex rounded-t-sm shadow-sm'>{RenderStatusPurchase}</div>
-          <div>
-            {purchaseData &&
-              purchaseData.data.data.map((purchase, index) => (
-                <div key={index} className='border rounded-sm  shadow-sm bg-white mt-4 p-6 flex'>
-                  <Link
-                    className='h-20  flex-shrink-0 w-full grid-cols-12 grid'
-                    to={`${path.home}${generateNameId({ name: purchase.product.name, id: purchase.product._id })}`}
-                  >
-                    <div className='col-span-8 flex '>
-                      <img
-                        className='w-20 h-20 object-cover'
-                        alt={purchase.product.name}
-                        src={purchase.product.image}
-                      ></img>
-                      <div className='flex-col flex ml-5 text-[19px] '>
-                        <span className=' mb-5 text-black font-sans line-clamp-2 leading-5'>
-                          {purchase.product.name}
-                        </span>
-                        <span className='text-[15px]'>x{purchase.buy_count}</span>
-                      </div>
+    <div className=''>
+      <div className='min-w-[1000px]'>
+        <div className='sticky top-0 flex rounded-t-sm shadow-sm'>{RenderStatusPurchase}</div>
+        <div>
+          {purchaseData &&
+            purchaseData.data.data.map((purchase, index) => (
+              <div key={index} className='border rounded-sm shadow-sm bg-white mt-4 p-6 flex '>
+                <Link
+                  className='h-20  flex-shrink-0 w-full grid-cols-12 grid'
+                  to={`${path.home}${generateNameId({ name: purchase.product.name, id: purchase.product._id })}`}
+                >
+                  <div className='col-span-8 flex '>
+                    <img
+                      className='w-20 h-20 object-cover'
+                      alt={purchase.product.name}
+                      src={purchase.product.image}
+                    ></img>
+                    <div className='flex-col flex ml-5 text-[19px] '>
+                      <span className=' mb-5 text-black font-sans line-clamp-2 leading-5'>{purchase.product.name}</span>
+                      <span className='text-[15px]'>x{purchase.buy_count}</span>
                     </div>
+                  </div>
 
-                    <div className='flex ml-auto text-[16px] items-center justify-between flex-col col-span-4'>
-                      <div>
-                        <span className='mr-3 line-through'>
-                          ₫{formatCurrency(purchase.product.price_before_discount)}
-                        </span>
-                        <span className='text-orangeHeaderTop'>₫{formatCurrency(purchase.product.price)}</span>
-                      </div>
-                      <div className=' text-lg text-black'>
-                        Thành tiền:{' '}
-                        <span className='text-orangeHeaderTop font-semibold'>
-                          ₫{formatCurrency(purchase.product.price * purchase.buy_count)}
-                        </span>
-                      </div>
+                  <div className='flex ml-auto text-[16px] items-center justify-between flex-col col-span-4'>
+                    <div>
+                      <span className='mr-3 line-through'>
+                        ₫{formatCurrency(purchase.product.price_before_discount)}
+                      </span>
+                      <span className='text-orangeHeaderTop'>₫{formatCurrency(purchase.product.price)}</span>
                     </div>
-                  </Link>
-                </div>
-              ))}
-          </div>
+                    <div className=' text-lg text-black'>
+                      Thành tiền:{' '}
+                      <span className='text-orangeHeaderTop font-semibold'>
+                        ₫{formatCurrency(purchase.product.price * purchase.buy_count)}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            ))}
         </div>
       </div>
     </div>

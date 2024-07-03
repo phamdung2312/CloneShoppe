@@ -78,13 +78,13 @@ export default function Header() {
         )}
 
         <div className='container'>
-          <div className='grid grid-cols-12 gap-4 items-end p-2 '>
+          <div className='grid grid-cols-12 gap-4 items-end p-2'>
             <form className='col-span-10' onSubmit={handleSearch}>
               <div className='bg-gray-200 rounded-sm p-1 flex'>
                 <input
                   placeholder='Enter search product'
                   type='text'
-                  className='text-black px-3 py-2 flex-grow border-none outline-none bg-transparent'
+                  className='text-black w-[100px] text-[12px] px-3 py-2 flex-grow border-none outline-none bg-transparent'
                   {...register('form_nam1')}
                 />
                 <button type='submit' className='rounded-sm py-1 px-5 flex-shrink-0 bg-[#f6432e] hover:opacity-90'>

@@ -26,9 +26,9 @@ export default function HeaderNav() {
   }
 
   return (
-    <div className='flex h-[32px] justify-end'>
+    <div className='flex h-[32px] sm:justify-end justify-between'>
       <Popover
-        placementPopover='bottom-end'
+        placementPopover='bottom-start'
         className={'flex items-center py-1 hover:text-gray-300 cursor-pointer'}
         listPopover={
           <div className='flex flex-col justify-start min-w-40'>
